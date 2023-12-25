@@ -11,7 +11,7 @@ import { Container } from '@/components'
 import { getAllCharacters, getCharacterBySlug } from '@/lib/characters'
 import Image from 'next/image'
 
-export const dynamicParams = false
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const { characters } = await getAllCharacters()

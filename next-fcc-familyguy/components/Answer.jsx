@@ -76,7 +76,7 @@ export const Answer = ({ answers, questionId }) => {
           className="flex items-center gap-1 text-blue-400"
         >
           <FiRepeat className="mt-1" />
-          Do it again
+           Try again
         </Link>
       )}
     </>

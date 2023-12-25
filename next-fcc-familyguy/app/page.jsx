@@ -1,6 +1,6 @@
 /**
-
-Renders a Next.js page component that displays a grid of character avatars with links to individual character pages.
+ * Renders a Next.js page component that displays a grid of character avatars 
+ * with links to individual character pages.
 @component
 @returns {JSX.Element} The rendered page component.
 */
@@ -11,7 +11,7 @@ import Link from 'next/link'
 import { getAllCharacters } from '@/lib/characters'
 
 export default async function Page() {
-  const data = await getAllCharacters()
+  const data = await getAllCharacters();
 
   return (
     <main>
