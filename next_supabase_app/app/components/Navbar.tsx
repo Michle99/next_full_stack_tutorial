@@ -3,24 +3,28 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { supabase } from "@/api";
-import { User } from "@supabase/supabase-js";
-
+import { Session, User } from "@supabase/supabase-js";
 
 export default function NavbarLayout() {
+  const [session, setSession] = useState<Session | null>(null);
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    const { data: autthListener } = supabase.auth.onAuthStateChange(async () =>
+    const { data: authListener } = supabase.auth.onAuthStateChange(async () =>
       checkUser()
     );
     checkUser();
     return () => {
-      autthListener?.subscription.unsubscribe();
+      authListener?.subscription.unsubscribe();
     };
   }, []);
 
-  async function checkUser() {
-    await supabase.auth.getUser().then(({ data: { user } }) => setUser(user));
+  function checkUser() {
+    supabase.auth.getSession()
+      .then(({ data: { session } }) => {
+        setSession(session);
+        setUser(session?.user ?? null);
+    });
   }
 
   return (
