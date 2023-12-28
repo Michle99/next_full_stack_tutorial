@@ -6,9 +6,7 @@
   <p align="center">
     Next.js Tutorials
     <br />
-    <a href="https://next-fcc-familyguy.vercel.app/">View Demo</a>
-    ·
-    <a href="https://github.com/Yazdun/next-fcc-familyguy/issues">Report Bug</a>
+    <a href="https://github.com/Michle99/next_full_stack_tutorial/issues">Report Bug</a>
   </p>
 
   [![freeCodeCamp](https://img.shields.io/badge/-freeCodeCamp-brightgreen?logo=freeCodeCamp)](https://www.freecodecamp.org/)
