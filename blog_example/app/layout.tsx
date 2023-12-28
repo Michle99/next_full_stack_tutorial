@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { fonts } from './fonts'
 import './globals.css'
 import { Provider } from './chakra_providers'
 
@@ -17,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={fonts.rubik.variable}>
         <Provider>{children}</Provider>
       </body>
     </html>
