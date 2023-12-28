@@ -7,13 +7,10 @@ type ChakraProviderType = {
     children: React.ReactNode
 }
 
-const ChakraProviderContainer: React.FC<ChakraProviderType> = 
-    ({children}: ChakraProviderType) => {
+export function Provider ({children}: ChakraProviderType) {
     return (
         <ChakraProvider>
             {children}
         </ChakraProvider>
     )
 }
-
-export default ChakraProviderContainer;
