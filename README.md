@@ -13,6 +13,7 @@
   [![React](https://img.shields.io/badge/-React-blue?logo=React)](https://reactjs.org/)
   [![React Hook Form](https://img.shields.io/badge/-Next.js-6E36F6?logo=Next.js&logoColor=white&color=black)](https://react-hook-form.com/)
   [![Tailwind CSS](https://img.shields.io/badge/-Tailwind%20CSS-06B6D4?logo=Tailwind%20CSS&logoColor=black&color=white)](https://tailwindcss.com/)
+  [![Chakra UI](https://img.shields.io/badge/-Chakra%20UI-6E36F6?logo=chakra-ui&logoColor=white&color=black)](https://chakra-ui.com)
   [![JavaScript](https://img.shields.io/badge/-JavaScript-FFA500?logo=JavaScript&logoColor=white&color=FFA500)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 
