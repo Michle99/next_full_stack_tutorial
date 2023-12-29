@@ -8,6 +8,7 @@
 import { NextResponse } from "next/server";
 import type { NextApiRequest, NextApiResponse } from "next";
 
+
 type PostType = {
   id: number;
   title: string;
@@ -22,16 +23,18 @@ type ApiRouteParams = {
 };
 
 export const GET = async (
-  request: NextApiRequest,
-  response: NextApiResponse
+  req: NextApiRequest,
+  { params }: { params: ApiRouteParams }
 ) => {
   try {
-    const { id } = request.query as ApiRouteParams;
+    const { id } = params;
+
+     if (!id) {
+      throw new Error("ID parameter is missing");
+    }
 
     const apiEndpoint = `https://dummyjson.com/posts/${id}`;
-    const fetchResponse = await fetch(apiEndpoint, {
-      next: { revalidate: 60 },
-    });
+    const fetchResponse = await fetch(apiEndpoint);
 
     if (!fetchResponse.ok) {
       throw new Error("Failed to fetch data");
@@ -39,10 +42,9 @@ export const GET = async (
 
     const post: PostType = await fetchResponse.json();
 
-    return response.json({ post });
+    return NextResponse.json({ post }, { headers: { 'Access-Control-Allow-Origin': '*' } });
   } catch (error) {
     console.error("Error:", error);
-
-    return response.errored;
+    return NextResponse.error();
   }
 };

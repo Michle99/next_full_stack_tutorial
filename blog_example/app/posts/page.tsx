@@ -1,6 +1,6 @@
 
 import { getAllPosts } from "@/fetch_posts_libs/posts";
-import { Box, VStack, Heading, Tag, TagLabel, Text, Container, Link } from "@chakra-ui/react";
+import { Box, VStack, Heading, Tag, TagLabel, Text, Container, Link, HStack } from "@chakra-ui/react";
 
 type PostType = {
     id: number;
@@ -36,13 +36,13 @@ export default async function PostsPage () {
                             <Text color="white">{post.body}</Text>
                         </Box>
                         <Box p={4}>
-                            <VStack spacing={2}>
+                            <HStack spacing={2}>
                                 {post.tags.map(tag => (
                                     <Tag key={tag} size="sm" colorScheme="teal">
                                         <TagLabel>{tag}</TagLabel>
                                     </Tag>
                                 ))}
-                            </VStack>
+                            </HStack>
                         </Box>
                     </Box>
                 ))}

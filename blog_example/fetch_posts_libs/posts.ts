@@ -7,6 +7,7 @@
 
 import { endpoint } from "@/utils/endpoint";
 
+type PostId = string;
 
 export async function getAllPosts() {
     const data = await fetch(`${endpoint}/posts`);
@@ -16,4 +17,21 @@ export async function getAllPosts() {
     }
     
     return data.json();
+}
+
+
+export async function getSinglePost(id:PostId) {
+    try {
+        const postResponse = await fetch(`${endpoint}/posts/${id}`)
+
+        if (!postResponse.ok) {
+            throw new Error(`Error fetching post: ${postResponse.statusText}`);
+        }
+        const post = await postResponse.json();
+        console.log("Post data by ID from getSinglePost fn:", post)
+        return post;
+    } catch (error) {
+        console.error("Error fetching post:", error)
+        throw error;
+    }
 }
