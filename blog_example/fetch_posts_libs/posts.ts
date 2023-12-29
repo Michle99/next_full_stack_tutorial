@@ -10,7 +10,7 @@ import { endpoint } from "@/utils/endpoint";
 
 export async function getAllPosts() {
     const data = await fetch(`${endpoint}/posts`);
-    console.log("post data:", data);
+    
     if (!data.ok) {
         throw new Error("Failed to fetch posts data");
     }

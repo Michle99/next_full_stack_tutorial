@@ -18,8 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={fonts.rubik.variable}>
-        <Provider>{children}</Provider>
+      <body className={fonts.roboto.variable}>
+        <Provider>
+          {children}
+        </Provider>
       </body>
     </html>
   )
