@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import { fonts } from './fonts'
 import './globals.css'
 import { Provider } from './chakra_providers'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,7 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={fonts.roboto.variable}>
         <Provider>
+          <Header/>
           {children}
+          <Footer/>
         </Provider>
       </body>
     </html>

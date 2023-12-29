@@ -16,7 +16,6 @@ export default async function PostsPage () {
 
     return(
         <Container>
-            <Heading>All Post from DummyJson Data</Heading>
             <VStack spacing={4} align="start" justify="center">
                 {posts.map((post: PostType) => (
                     <Box
