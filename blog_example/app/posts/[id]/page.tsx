@@ -1,6 +1,7 @@
 "use client"
 
 import { getSinglePost } from "@/fetch_posts_libs/posts";
+import LoadingIndicator from "@/utils/loading";
 import { Box, Container, Heading, Text, Link, HStack, Tag, TagLabel, VStack } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 
@@ -77,7 +78,7 @@ export default function SinglePost( {params}: ParamsType) {
                 </Box>
              ):
              (
-                <Text>Loading....</Text>
+                <LoadingIndicator/>
              )}
             </VStack>
         </Container>
