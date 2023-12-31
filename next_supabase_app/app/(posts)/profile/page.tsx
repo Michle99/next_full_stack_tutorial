@@ -26,7 +26,7 @@ const Profile: React.FC<ProfileType> = (props) => {
         <Text>Signed in: {session.user.email}</Text>
         <Button
           block
-          onClick={() => props.supabaseClient.auth.signOut()}
+          onClick={() => supabase.auth.signOut()}
           placeholder="Sign Out"
         >
           Sign Out

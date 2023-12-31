@@ -6,7 +6,6 @@ import { supabase } from "@/api";
 import { Session, User } from "@supabase/supabase-js";
 
 export default function NavbarLayout() {
-  const [session, setSession] = useState<Session | null>(null);
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
@@ -20,10 +19,8 @@ export default function NavbarLayout() {
   }, []);
 
   function checkUser() {
-    supabase.auth.getSession()
-      .then(({ data: { session } }) => {
-        setSession(session);
-        setUser(session?.user ?? null);
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
     });
   }
 
@@ -34,7 +31,7 @@ export default function NavbarLayout() {
           <span className="mr-6 cursor-pointer">Home</span>
         </Link>
         {user && (
-          <Link href="/create-post">
+          <Link href="/create">
             <span className="mr-6 cursor-pointer">Create Post</span>
           </Link>
         )}
