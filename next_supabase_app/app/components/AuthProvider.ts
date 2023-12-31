@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 export const AuthContext = createContext<any>(null);
 
 type AuthProviderProps = {
-    accessToken: string;
+    accessToken: string | null;
     children: React.ReactNode;
 }
 

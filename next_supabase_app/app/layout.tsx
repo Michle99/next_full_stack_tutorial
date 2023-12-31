@@ -4,6 +4,7 @@ import "./globals.css";
 import NavbarLayout from "./components/Navbar";
 import AuthProvider from "./components/AuthProvider";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,14 +17,18 @@ type RootLayoutProps = {
   children: React.ReactNode;
 }
 
-export default function RootLayout({children}: RootLayoutProps ) {
+export default async function RootLayout({children}: RootLayoutProps ) {
   const supabase = createServerComponentClient({ cookies });
+
+  const { data: { session }} = await supabase.auth.getSession();
+
+  const accessToken = session?.access_token || null;
 
   return (
     <html lang="en">
       <body className={inter.className}>
         <NavbarLayout/>
-        <AuthProvider accessToken="supabase">
+        <AuthProvider accessToken={accessToken}>
           {children}
         </AuthProvider>
       </body>
