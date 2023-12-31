@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavbarLayout from "./components/Navbar";
 import AuthProvider from "./components/AuthProvider";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +17,8 @@ type RootLayoutProps = {
 }
 
 export default function RootLayout({children}: RootLayoutProps ) {
+  const supabase = createServerComponentClient({ cookies });
+
   return (
     <html lang="en">
       <body className={inter.className}>
