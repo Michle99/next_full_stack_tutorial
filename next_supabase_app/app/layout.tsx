@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavbarLayout from "./components/Navbar";
+import AuthProvider from "./components/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,16 +11,18 @@ export const metadata: Metadata = {
   description: "Use App router to create a nextjs supabase app."
 }
 
-export default function RootLayout({
-  children,
-}: {
+type RootLayoutProps = {
   children: React.ReactNode;
-}) {
+}
+
+export default function RootLayout({children}: RootLayoutProps ) {
   return (
     <html lang="en">
       <body className={inter.className}>
         <NavbarLayout/>
-        {children}
+        <AuthProvider accessToken="supabase">
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
