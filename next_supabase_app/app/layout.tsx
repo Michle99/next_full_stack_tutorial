@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import NavbarLayout from "./components/Navbar";
-import AuthProvider from "./components/AuthProvider";
+import NavbarLayout from "../components/Navbar";
+import AuthProvider from "../components/AuthProvider";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 

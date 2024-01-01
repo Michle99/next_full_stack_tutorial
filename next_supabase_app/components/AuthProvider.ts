@@ -1,10 +1,10 @@
-// "use client"
+"use client"
 
-import React, { createContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 
-export const AuthContext = createContext<any>(null);
+// export const AuthContext = createContext<any>(null);
 
 type AuthProviderProps = {
     accessToken: string | null;
