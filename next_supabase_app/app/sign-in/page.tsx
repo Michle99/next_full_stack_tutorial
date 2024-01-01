@@ -10,6 +10,6 @@ export default async function SignInPage() {
 
     if (data?.session) redirect('/');
 
-    // Create a signin page
+    // Create a signin component
     return <SignIn supabaseClient={supabase}/>
 }
