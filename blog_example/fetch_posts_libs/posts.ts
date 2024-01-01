@@ -10,7 +10,7 @@ import { endpoint } from "@/utils/endpoint";
 type PostId = string;
 
 export async function getAllPosts() {
-    const data = await fetch(`${endpoint}/posts`);
+    const data = await fetch(`${endpoint}/posts?limit=5`);
     
     if (!data.ok) {
         throw new Error("Failed to fetch posts data");

@@ -14,6 +14,15 @@
 
 Next.js Blog Example using the latest Next.js App router. 
 
+## Screenshots
+### All Posts
+<img src="./public/images/scn_0.png" width="90%" alt="Screenshot One"/>
+<img src="./public/images/scrn_1.png" width="90%" alt="Screenshot Two"/>
+
+### Single Post
+
+<img src="./public/images/single_post.png" width="90%" alt="Single Post Page"/>
+
 ## Getting Started
 
 To get started with the project in your local development environment, follow
