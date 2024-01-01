@@ -1,58 +1,34 @@
-"use client";
 
-import { Typography, Button } from "@supabase/ui";
-import { Auth } from '@supabase/auth-ui-react'
-import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
-import {ThemeSupa} from '@supabase/auth-ui-shared'
-import { supabase } from "@/api";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import React from "react";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import Link from "next/link";
 
 
-const { Text } = Typography;
+const Profile = async () => {
+  const supabase = createServerComponentClient({ cookies });
 
-type ProfileType = {
-  supabaseClient: typeof supabase;
-  children: React.ReactNode;
-};
+  const { data: { user }} = await supabase.auth.getUser();
 
-const Profile: React.FC<ProfileType> = (props) => {
-  const supabase = useSupabaseClient();
-  const session = useSession();
-  // const { user } = Auth.useUser();
+  if (!user) redirect('/sign-in')
 
-  if (session)
-    return (
-      <>
-        <Text>Signed in: {session.user.email}</Text>
-        <Button
-          block
-          onClick={() => supabase.auth.signOut()}
-          placeholder="Sign Out"
-        >
-          Sign Out
-        </Button>
-      </>
-    );
   return (
-    <>
-      {props.children}
-      <div>
-       <h3 className="text-center text-red-300 mt-6">Profile Page</h3>
-      </div>
-    </>
-    );
-};
-
-// export default Profile;
-
-export default function AuthProfile() {
-  return (
-    <Profile supabaseClient={supabase}>
-      <Auth
-        supabaseClient={supabase}
-        appearance={{ theme: ThemeSupa }}
-        theme="dark"
-      />
-    </Profile>
+    <div className="card">
+      <h2>User Profile</h2>
+      <code className="highlight">{user.email}</code>
+      <div className="heading">Last Signed in:</div>
+      <code className="highlight">
+      {user.last_sign_in_at ? new Date(user.last_sign_in_at).toUTCString() : 'N/A'}
+      </code>
+      <Link className="button" href="/">
+        Go to Home
+      </Link>
+      {/** SignOut Component */}
+    </div>
   );
-}
+};
+
+export default Profile;
+
+

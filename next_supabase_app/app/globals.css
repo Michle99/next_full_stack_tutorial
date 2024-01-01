@@ -3,21 +3,49 @@
 @tailwind utilities;
 
 
+@layer base {
+  .button {
+    @apply custom-focus rounded-full border-2 border-green-400 bg-white px-8 py-2 font-bold text-green-400 hover:bg-green-400 hover:text-white focus:bg-green-400 focus:text-white;
+  }
+
+  .card {
+    @apply column min-w-[20rem] items-center gap-8 rounded-2xl bg-slate-400 py-8 px-4 shadow-md sm:min-w-[24rem] sm:px-10;
+  }
+
+  h2 {
+    @apply py-4 text-4xl font-black text-gray-800;
+  }
+  .custom-focus {
+    @apply focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2;
+  }
+
+  .column {
+    @apply flex flex-col items-start justify-center gap-4;
+  }
+
+  .heading {
+    @apply text-lg font-semibold text-gray-700;
+  }
+
+  .highlight {
+    @apply ml-1 rounded-lg bg-gray-700 p-2 font-mono;
+  }
+}
 
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 255, 25;
+  --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
 body {
   color: rgb(var(--foreground-rgb));
