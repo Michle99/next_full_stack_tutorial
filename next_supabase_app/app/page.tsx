@@ -2,6 +2,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import Link from "next/link";
+import SignOut from "@/components/Auth/SignOut";
 
 export default async function Home() {
 
@@ -18,7 +19,7 @@ export default async function Home() {
       <Link className="button" href="/profile">
         Go to Profile
       </Link>
-      {/* <SignOut/> */}
+      <SignOut/>
     </main>
   );
 }
