@@ -44,7 +44,7 @@ const UpdatedPassword = () => {
           onSubmit={updatePassword}
         >
           {({ errors, touched }) => (
-            <Form className="column w-full">
+            <Form className="column w-2/4">
               <label htmlFor='email'>New Password</label>
               <Field
                 className={cn('input', errors.password && touched.password && 'bg-red-400')}
@@ -55,7 +55,7 @@ const UpdatedPassword = () => {
               {errors.password && touched.password ? (
                 <div className="text-red-600">{errors.password}</div>
               ) : null}
-              <button className="button-inverse w-full" type="submit">
+              <button className="button-inverse w-2/4" type="submit">
                 Update Password
               </button>
             </Form>
