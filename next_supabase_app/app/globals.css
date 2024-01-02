@@ -39,10 +39,10 @@
   }
 
   .input {
-    @apply custom-focus w-full rounded-xl border border-slate-300 focus:shadow-none;
+    @apply custom-focus w-full text-black rounded-lg border border-slate-300 focus:shadow-none;
   }
   .link {
-    @apply custom-focus rounded-md font-semibold text-green-400;
+    @apply custom-focus rounded-md font-semibold text-green-700;
   }
 
   .row {

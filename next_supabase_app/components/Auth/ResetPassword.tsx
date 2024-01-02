@@ -43,7 +43,7 @@ const ResetPassword = () => {
             onSubmit={resetPassword}
           >
             {({ errors, touched }) => (
-              <Form className="column w-full">
+              <Form className="column w-2/4">
                 <label htmlFor="email">Email</label>
                 <Field
                   className={cn('input', errors.email && 'bg-red-50')}
