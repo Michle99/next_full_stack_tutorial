@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 
-export default async function UpdatePassword () {
+export default async function UpdatePasswordPage () {
     const supabase = createServerComponentClient({ cookies });
 
     const { data: { session }} = await supabase.auth.getSession();
