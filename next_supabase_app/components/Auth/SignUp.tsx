@@ -48,7 +48,7 @@ const SignUp = () => {
         onSubmit={signUp}
       >
         {({ errors, touched }) => (
-          <Form className="column w-full">
+          <Form className="column w-2/4">
             <label htmlFor="email">Email</label>
             <Field
               className={cn('input', errors.email && 'bg-red-50')}
@@ -80,7 +80,7 @@ const SignUp = () => {
       </Formik>
       {errorMsg && <div className="text-red-600">{errorMsg}</div>}
       {successMsg && <div className="text-black">{successMsg}</div>}
-      <Link href="/sign-in" className="link w-full">
+      <Link href="/sign-in" className="link w-2/4">
         Already have an account? Sign In.
       </Link>
     </div>
